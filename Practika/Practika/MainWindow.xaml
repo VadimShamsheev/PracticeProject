@@ -12,19 +12,25 @@
         </Style>
         <Style x:Key="ElementsStyle">
             <Setter Property="Control.Height" Value="25"></Setter>
-            <Setter Property="Control.Width" Value="200"></Setter>
-            <Setter Property="Control.Height" Value="28"></Setter>
-            <Setter Property="Control.FontSize" Value="20"></Setter>
+            <Setter Property="Control.Width" Value="250"></Setter>
+            <Setter Property="Control.Height" Value="36"></Setter>
+            <Setter Property="Control.FontSize" Value="24"></Setter>
             <Setter Property="Control.FontFamily" Value="Comic Sans MS"></Setter>
-            <Setter Property="Control.Margin" Value="15"></Setter>
-            <Setter Property="Control.HorizontalAlignment" Value="Center"></Setter>
+            <Setter Property="Control.Foreground" Value="#37474f"></Setter>
+            <Setter Property="Control.Margin" Value="10"></Setter>
+            <Setter Property="TextBlock.TextAlignment" Value="Center"></Setter>
+            <Setter Property="TextBox.TextAlignment" Value="Center"></Setter>
         </Style>
     </Window.Resources>
     <StackPanel Orientation="Vertical" Style="{StaticResource MainStyle}">
         <Image Source="resources/images/logo.png" Width="200"></Image>
-        <TextBlock Style="{StaticResource ElementsStyle}">Логин</TextBlock>
-        <TextBox Style="{StaticResource ElementsStyle}"></TextBox>
+        <TextBlock Style="{StaticResource ElementsStyle}" TextAlignment="Center">Логин</TextBlock>
+        <TextBox Style="{StaticResource ElementsStyle}" Foreground="#546e7a"></TextBox>
         <TextBlock Style="{StaticResource ElementsStyle}">Пароль</TextBlock>
-        <PasswordBox Style="{StaticResource ElementsStyle}"></PasswordBox>
+        <PasswordBox Style="{StaticResource ElementsStyle}" Foreground="#546e7a"></PasswordBox>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Style="{StaticResource ElementsStyle}" FontSize="15" Height="40" Margin="0 20 10 0">Регистрация</Button>
+            <Button Style="{StaticResource ElementsStyle}" FontSize="15" Height="40" Margin="10 20 0 0">Вход</Button>
+        </StackPanel>
     </StackPanel>
 </Window>
