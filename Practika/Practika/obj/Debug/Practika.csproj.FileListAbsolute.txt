@@ -1,0 +1,15 @@
+C:\Users\Rorarir\Desktop\Main\Учеба\Practika\Practika\bin\Debug\Practika.exe.config
+C:\Users\Rorarir\Desktop\Main\Учеба\Practika\Practika\bin\Debug\Practika.exe
+C:\Users\Rorarir\Desktop\Main\Учеба\Practika\Practika\bin\Debug\Practika.pdb
+C:\Users\Rorarir\Desktop\Main\Учеба\Practika\Practika\obj\Debug\Practika.csprojAssemblyReference.cache
+C:\Users\Rorarir\Desktop\Main\Учеба\Practika\Practika\obj\Debug\MainWindow.g.cs
+C:\Users\Rorarir\Desktop\Main\Учеба\Practika\Practika\obj\Debug\App.g.cs
+C:\Users\Rorarir\Desktop\Main\Учеба\Practika\Practika\obj\Debug\Practika_MarkupCompile.cache
+C:\Users\Rorarir\Desktop\Main\Учеба\Practika\Practika\obj\Debug\Practika_MarkupCompile.lref
+C:\Users\Rorarir\Desktop\Main\Учеба\Practika\Practika\obj\Debug\MainWindow.baml
+C:\Users\Rorarir\Desktop\Main\Учеба\Practika\Practika\obj\Debug\Practika.g.resources
+C:\Users\Rorarir\Desktop\Main\Учеба\Practika\Practika\obj\Debug\Practika.Properties.Resources.resources
+C:\Users\Rorarir\Desktop\Main\Учеба\Practika\Practika\obj\Debug\Practika.csproj.GenerateResource.cache
+C:\Users\Rorarir\Desktop\Main\Учеба\Practika\Practika\obj\Debug\Practika.csproj.CoreCompileInputs.cache
+C:\Users\Rorarir\Desktop\Main\Учеба\Practika\Practika\obj\Debug\Practika.exe
+C:\Users\Rorarir\Desktop\Main\Учеба\Practika\Practika\obj\Debug\Practika.pdb

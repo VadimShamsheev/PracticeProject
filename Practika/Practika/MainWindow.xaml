@@ -1,0 +1,30 @@
+﻿<Window x:Class="Practika.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Practika"
+        mc:Ignorable="d"
+        Title="MainWindow" WindowState="Normal">
+    <Window.Resources>
+        <Style x:Key="MainStyle">
+            <Setter Property="Control.VerticalAlignment" Value="Center"></Setter>
+        </Style>
+        <Style x:Key="ElementsStyle">
+            <Setter Property="Control.Height" Value="25"></Setter>
+            <Setter Property="Control.Width" Value="200"></Setter>
+            <Setter Property="Control.Height" Value="28"></Setter>
+            <Setter Property="Control.FontSize" Value="20"></Setter>
+            <Setter Property="Control.FontFamily" Value="Comic Sans MS"></Setter>
+            <Setter Property="Control.Margin" Value="15"></Setter>
+            <Setter Property="Control.HorizontalAlignment" Value="Center"></Setter>
+        </Style>
+    </Window.Resources>
+    <StackPanel Orientation="Vertical" Style="{StaticResource MainStyle}">
+        <Image Source="resources/images/logo.png" Width="200"></Image>
+        <TextBlock Style="{StaticResource ElementsStyle}">Логин</TextBlock>
+        <TextBox Style="{StaticResource ElementsStyle}"></TextBox>
+        <TextBlock Style="{StaticResource ElementsStyle}">Пароль</TextBlock>
+        <PasswordBox Style="{StaticResource ElementsStyle}"></PasswordBox>
+    </StackPanel>
+</Window>
