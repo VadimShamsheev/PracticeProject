@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Practika"
         mc:Ignorable="d"
-        Title="MainWindow" WindowState="Normal">
+        Title="Работа с базой данных" WindowState="Normal">
     <Window.Resources>
         <Style x:Key="MainStyle">
             <Setter Property="Control.VerticalAlignment" Value="Center"></Setter>
@@ -21,16 +21,131 @@
             <Setter Property="TextBlock.TextAlignment" Value="Center"></Setter>
             <Setter Property="TextBox.TextAlignment" Value="Center"></Setter>
         </Style>
+        <Style x:Key="registerFormStyle">
+            <Setter Property="Control.FontFamily" Value="Comic Sans MS"></Setter>
+            <Setter Property="Control.FontSize" Value="24"></Setter>
+            <Setter Property="Control.VerticalAlignment" Value="Center"></Setter>
+            <Setter Property="ItemsControl.HorizontalAlignment" Value="Center"></Setter>
+            <Setter Property="ItemsControl.Width" Value="200"></Setter>
+            <Setter Property="ItemsControl.Foreground" Value="#37474f"></Setter>
+            <Setter Property="ItemsControl.Margin" Value="100 0 0 0"></Setter>
+        </Style>
+        <Style x:Key="registerFormTextBox" BasedOn="{StaticResource registerFormStyle}">
+            <Setter Property="Control.Width" Value="300"></Setter>
+            <Setter Property="ItemsControl.FontSize" Value="12"></Setter>
+            <Setter Property="ItemsControl.Height" Value="24"></Setter>
+            <Setter Property="ItemsControl.Margin" Value="0"></Setter>
+        </Style>
+        <Style x:Key="mainWindowStyle">
+            <Setter Property="ItemsControl.FontFamily" Value="Comic Sans MS"></Setter>
+            <Setter Property="ItemsControl.Margin" Value="5"></Setter>
+            <Setter Property="TextBlock.TextWrapping" Value="Wrap"></Setter>
+        </Style>
+        <Style x:Key="functionPanel" TargetType="Button">
+            <Setter Property="FontFamily" Value="Comic Sans MS"></Setter>
+            <Setter Property="Margin" Value="5 0 0 0"></Setter>
+        </Style>
     </Window.Resources>
-    <StackPanel Orientation="Vertical" Style="{StaticResource MainStyle}">
-        <Image Source="resources/images/logo.png" Width="200"></Image>
-        <TextBlock Style="{StaticResource ElementsStyle}" TextAlignment="Center">Логин</TextBlock>
-        <TextBox Style="{StaticResource ElementsStyle}" Foreground="#546e7a"></TextBox>
-        <TextBlock Style="{StaticResource ElementsStyle}">Пароль</TextBlock>
-        <PasswordBox Style="{StaticResource ElementsStyle}" Foreground="#546e7a"></PasswordBox>
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button Style="{StaticResource ElementsStyle}" FontSize="15" Height="40" Margin="0 20 10 0">Регистрация</Button>
-            <Button Style="{StaticResource ElementsStyle}" FontSize="15" Height="40" Margin="10 20 0 0">Вход</Button>
+    <Grid>
+        <StackPanel Orientation="Vertical" Style="{StaticResource MainStyle}" Visibility="Hidden">
+            <Image Source="resources/images/logo.png" Width="200"></Image>
+            <TextBlock Style="{StaticResource ElementsStyle}" TextAlignment="Center">Логин</TextBlock>
+            <TextBox Style="{StaticResource ElementsStyle}" Foreground="#546e7a"></TextBox>
+            <TextBlock Style="{StaticResource ElementsStyle}">Пароль</TextBlock>
+            <PasswordBox Style="{StaticResource ElementsStyle}" Foreground="#546e7a"></PasswordBox>
+            
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Style="{StaticResource ElementsStyle}" FontSize="15" Height="40" Margin="0 20 10 0">Регистрация</Button>
+                <Button Style="{StaticResource ElementsStyle}" FontSize="15" Height="40" Margin="10 20 0 0">Вход</Button>
+            </StackPanel>
         </StackPanel>
-    </StackPanel>
+        <Grid Visibility="Hidden">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="450"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.ColumnSpan="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.ColumnSpan="2" FontFamily="Comic Sans MS" FontSize="36" Foreground="#37474f" FontWeight="Bold" HorizontalAlignment="Center">Личная информация</TextBlock>
+                <TextBlock Grid.Row="1" Style="{StaticResource registerFormStyle}">ФИО</TextBlock>
+                <TextBox Grid.Row="1" Grid.Column="1" Style="{StaticResource registerFormTextBox}" Width="300"></TextBox>
+                <TextBlock Grid.Row="2" Style="{StaticResource registerFormStyle}">Менеджер</TextBlock>
+                <CheckBox Grid.Row="2" Grid.Column="1" Style="{StaticResource registerFormStyle}" Name="youManager">Да</CheckBox>
+                <TextBlock Grid.Row="3" Style="{StaticResource registerFormStyle}">Логин</TextBlock>
+                <TextBox Grid.Row="3" Grid.Column="1" Style="{StaticResource registerFormTextBox}"></TextBox>
+                <TextBlock Grid.Row="4" Style="{StaticResource registerFormStyle}">Пароль</TextBlock>
+                <PasswordBox Grid.Row="4" Grid.Column="1" Style="{StaticResource registerFormTextBox}"></PasswordBox>
+                <Button Grid.Row="5" Grid.Column="1" Height="36" Width="200" FontFamily="Comic Sans MS">Далее</Button>
+            </Grid>
+            <Image HorizontalAlignment="Left" Width="150" Grid.Row="5" Source="resources/images/logo.png"></Image>
+        </Grid>
+        <DockPanel>
+            <Grid DockPanel.Dock="Right" Width="200">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="0.4*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Border  BorderThickness="2" BorderBrush="#37474f" Grid.ColumnSpan="2" Grid.RowSpan="8"></Border>
+                <TextBlock Style="{StaticResource mainWindowStyle}" Grid.ColumnSpan="2">Коэффициенты</TextBlock>
+                <TextBlock  Grid.Row="1" Style="{StaticResource mainWindowStyle}">Анализ и проектирование</TextBlock>
+                <TextBlock Grid.Row="2" Style="{StaticResource mainWindowStyle}">Установка оборудования</TextBlock>
+                <TextBlock Grid.Row="3" Style="{StaticResource mainWindowStyle}">Техническое обслуживание и сопровождение</TextBlock>
+                <TextBlock Grid.Row="4" Style="{StaticResource mainWindowStyle}">Коэффициент времени</TextBlock>
+                <TextBlock Grid.Row="5" Style="{StaticResource mainWindowStyle}">Коэффициент сложности</TextBlock>
+                <TextBlock Grid.Row="6" Style="{StaticResource mainWindowStyle}">Коэффициент перевода в денежный эквивалент</TextBlock>
+                <Button Grid.Row="7" Grid.ColumnSpan="2" Style="{StaticResource mainWindowStyle}">Изменить</Button>
+            </Grid>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="24"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <StackPanel Orientation="Horizontal" Grid.ColumnSpan="6">
+                    <Button Style="{StaticResource functionPanel}">Добавить исполнителя</Button>
+                    <Button Style="{StaticResource functionPanel}">Изменить исполнителя</Button>
+                    <Button Style="{StaticResource functionPanel}">Удалить проект</Button>
+                    <Button Style="{StaticResource functionPanel}">Рассчитать доход проекта</Button>
+                </StackPanel>
+                <TextBlock Grid.Row="1" Style="{StaticResource mainWindowStyle}">Исполнитель</TextBlock>
+                <TextBlock Grid.Column="1" Grid.Row="1" Style="{StaticResource mainWindowStyle}">Заголовок</TextBlock>
+                <TextBlock Grid.Column="2" Grid.Row="1" Style="{StaticResource mainWindowStyle}">Сложность</TextBlock>
+                <TextBlock Grid.Column="3" Grid.Row="1" Style="{StaticResource mainWindowStyle}">Статус</TextBlock>
+                <TextBlock Grid.Column="4" Grid.Row="1" Style="{StaticResource mainWindowStyle}">Характер работы</TextBlock>
+                <TextBlock Grid.Column="5" Grid.Row="1" Style="{StaticResource mainWindowStyle}">Время на выполнение</TextBlock>
+            </Grid>
+        </DockPanel>
+    </Grid>
 </Window>
