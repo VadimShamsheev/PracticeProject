@@ -24,5 +24,17 @@ namespace Practika
         {
             InitializeComponent();
         }
+
+        private void mainWindow_Click(object sender, RoutedEventArgs e)
+        {
+            signInForm.Visibility = Visibility.Hidden;
+            mainWindowMenegerForm.Visibility = Visibility.Visible;
+        }
+
+        private void register_Click(object sender, RoutedEventArgs e)
+        {
+            signInForm.Visibility = Visibility.Hidden;
+            registerForm.Visibility = Visibility.Visible;
+        }
     }
 }
