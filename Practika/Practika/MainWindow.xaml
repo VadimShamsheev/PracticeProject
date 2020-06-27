@@ -50,12 +50,12 @@
         <StackPanel Orientation="Vertical" Style="{StaticResource MainStyle}" Name="signInForm">
             <Image Source="resources/images/logo.png" Width="200"></Image>
             <TextBlock Style="{StaticResource ElementsStyle}" TextAlignment="Center">Логин</TextBlock>
-            <TextBox x:Name="loginSignIn" Style="{StaticResource ElementsStyle}" Foreground="#546e7a"></TextBox>
+            <TextBox x:Name="loginSignIn" Style="{StaticResource ElementsStyle}" Foreground="#546e7a">lavrinov</TextBox>
             <TextBlock Style="{StaticResource ElementsStyle}">Пароль</TextBlock>
             <PasswordBox Style="{StaticResource ElementsStyle}" Foreground="#546e7a" x:Name="passwordSignIn"></PasswordBox>
             
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button Style="{StaticResource ElementsStyle}" FontSize="15" Height="40" Margin="0 20 10 0" Click="register_Click">Регистрация</Button>
+                
                 <Button Style="{StaticResource ElementsStyle}" FontSize="15" Height="40" Margin="10 20 0 0" Click="mainWindow_Click">Вход</Button>
             </StackPanel>
         </StackPanel>
@@ -133,9 +133,7 @@
             <Grid Margin="0 10 0 0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="24"></RowDefinition>
-                    <RowDefinition Height="48"></RowDefinition>
                     <RowDefinition></RowDefinition>
-                    <RowDefinition Height="60"></RowDefinition>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition></ColumnDefinition>
@@ -146,17 +144,58 @@
                     <ColumnDefinition></ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 <StackPanel Orientation="Horizontal" Grid.ColumnSpan="6">
-                    <Button Style="{StaticResource functionPanel}">Добавить</Button>
-                    <Button Style="{StaticResource functionPanel}">Изменить</Button>
-                    <Button Style="{StaticResource functionPanel}">Удалить</Button>
-                    <Button Style="{StaticResource functionPanel}">Рассчитать доход</Button>
+                    <Button Style="{StaticResource functionPanel}" Click="addTask_Click">Добавить</Button>
+                    <Button Style="{StaticResource functionPanel}" Name="updateTask_Button" Click="updateTask_Click">Изменить</Button>
+                    <Button Style="{StaticResource functionPanel}" Click="deleteTask_Click">Удалить</Button>
+                    <ComboBox Name="filterUser" Margin="5 0 0 0"></ComboBox>
+                    <Button Style="{StaticResource functionPanel}" Click="updateTable_Click">Обновить данные</Button>
+                    <Button Style="{StaticResource functionPanel}" Click="workerList_Click">Список исполнителей</Button>
                 </StackPanel>
-                <TextBlock Grid.Row="1" Style="{StaticResource mainWindowStyle}">Исполнитель</TextBlock>
-                <TextBlock Grid.Column="1" Grid.Row="1" Style="{StaticResource mainWindowStyle}">Заголовок</TextBlock>
-                <TextBlock Grid.Column="2" Grid.Row="1" Style="{StaticResource mainWindowStyle}">Сложность</TextBlock>
-                <TextBlock Grid.Column="3" Grid.Row="1" Style="{StaticResource mainWindowStyle}">Статус</TextBlock>
-                <TextBlock Grid.Column="4" Grid.Row="1" Style="{StaticResource mainWindowStyle}">Характер работы</TextBlock>
-                <TextBlock Grid.Column="5" Grid.Row="1" Style="{StaticResource mainWindowStyle}">Время на выполнение</TextBlock>
+                <DataGrid x:Name="todoList" Grid.Row="1" Grid.ColumnSpan="6" AutoGenerateColumns="False" SelectionMode="Single" SelectionChanged="todoList_SelectionChanged">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Исполнитель" Binding="{Binding Path=worker}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Заголовок" Binding="{Binding Path=name}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Сложность" Binding="{Binding Path=difficulty}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Статус" Binding="{Binding Path=status}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Характер" Binding="{Binding Path=natureWork}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Время" Binding="{Binding Path=timeLeft}"></DataGridTextColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </DockPanel>
+        <DockPanel x:Name="mainWindowWorkerForm" Visibility="Hidden">
+            <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
+                <Image Grid.Row="3" HorizontalAlignment="Left" Width="150" Source="resources/images/logo.png"></Image>
+                <TextBlock Style="{StaticResource mainWindowStyle}" FontSize="36" TextAlignment="Center" Margin="50 0 0 0" FontWeight="Bold">Рабочая область</TextBlock>
+            </StackPanel>
+            
+            <Grid Margin="0 10 0 0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="24"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <StackPanel Orientation="Horizontal" Grid.ColumnSpan="6">
+                    <Button Style="{StaticResource functionPanel}" Click="updateTaskWorker_Click">Изменить</Button>
+                    <Button Style="{StaticResource functionPanel}" Click="updateTableWorker_Click">Обновить данные</Button>
+                </StackPanel>
+                <DataGrid x:Name="todoListWorker" Grid.Row="1" Grid.ColumnSpan="6" AutoGenerateColumns="False" SelectionMode="Single">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Исполнитель" Binding="{Binding Path=worker}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Заголовок" Binding="{Binding Path=name}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Сложность" Binding="{Binding Path=difficulty}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Статус" Binding="{Binding Path=status}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Характер" Binding="{Binding Path=natureWork}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Время" Binding="{Binding Path=timeLeft}"></DataGridTextColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
             </Grid>
         </DockPanel>
     </Grid>
